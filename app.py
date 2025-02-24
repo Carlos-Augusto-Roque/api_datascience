@@ -7,20 +7,13 @@ from sqlalchemy import create_engine
 app = Flask('projeto')
 
 # Configuração do banco de dados
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Corrigido para False
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Corrigido para False
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 
 DATABASE_URL = os.getenv('DATABASE_URL')
 engine = create_engine(DATABASE_URL)
 connection = engine.connect()
 print("Conexão bem-sucedida!")
-
-
-
-
-
-
-
 
 
 # Inicializando o SQLAlchemy
