@@ -7,17 +7,8 @@ from sqlalchemy import create_engine
 app = Flask('projeto')
 
 # Configuração do banco de dados
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI_BASE')
-
-ssl_args = {
-    'ssl': {
-        'ca': '/etc/ssl/certs/ca-certificates.crt',  # Caminho para o certificado CA (veja as notas abaixo)
-    }
-}
-
-engine = create_engine(app.config['SQLALCHEMY_DATABASE_URI'], connect_args=ssl_args)
-app.config['SQLALCHEMY_ENGINE'] = engine
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Corrigido para False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://jessica:senai%40134@projetointegrador-graduacao.mysql.database.azure.com/projetointegrador'
 
 
 
